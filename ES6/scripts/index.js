@@ -1,4 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -255,7 +270,7 @@ var person2 = (_a = {
     _a);
 console.log(person2);
 console.log(person2["first name"]);
-/* Tutorial -17 */
+/* Tutorial -17 Destructing an Array*/
 console.log("Tutorial -17");
 var employee2 = ["Chandler", "Bing"];
 var fname = employee2[0], lname = employee2[1], _b = employee2[2], gender = _b === void 0 ? "Male" : _b;
@@ -265,10 +280,105 @@ console.log(gender);
 employee2 = ["Chandler", "Bing", "Female"];
 var gender2 = employee2[2];
 console.log(gender2);
-/* Tutorial -18 Alias */
+/* Tutorial -18 Alias and destructing an object */
 console.log("Tutorial -18");
-// let [{fname: f, lname: l, gender: g} = employee2;
-// console.log(f);
-// console.log(l);
-// console.log(g);
+var employee3 = {
+    fname3: "Chandler",
+    lname3: "Bing",
+    gender3: "Male"
+};
+var fname3 = employee3.fname3, lname3 = employee3.lname3, gender3 = employee3.gender3;
+console.log(fname);
+console.log(lname);
+console.log(gender);
+// if any of the object atribute is slightly big so we can use alias for teh such atributes
+var f = employee3.fname3, l = employee3.lname3, g = employee3.gender3;
+console.log(f);
+console.log(l);
+console.log(g);
+/* Tutorial -19 String Templates */
+console.log("Tutorial -19  String Templates");
+var user = "Chandler";
+var greet = "Welcome 'single' \"double\" " + user + " to ES2015\n            This is the second line.\n               Third and so          on.\n\n";
+console.log(greet);
+/* Tutorial -20 forOf loop */
+console.log("Tutorial -20 forOf loop");
+var colors = ['Red', 'Blue', 'Green'];
+for (var index in colors) {
+    console.log(colors[index]);
+}
+for (var _i = 0, colors_1 = colors; _i < colors_1.length; _i++) {
+    var color = colors_1[_i];
+    console.log(color);
+}
+var letters = "ABC";
+for (var _c = 0, letters_1 = letters; _c < letters_1.length; _c++) {
+    var letter = letters_1[_c];
+    console.log(letter);
+}
+/* Tutorial -21 Class Declaration*/
+console.log("Tutorial -21 Class Declaration");
+//console.log(typeof Person);
+var Person = /** @class */ (function () {
+    function Person() {
+    }
+    Person.prototype.greet = function () { };
+    return Person;
+}());
+var p1 = new Person();
+console.log(typeof Person);
+console.log(typeof congo);
+//classes are nothing but a function but it cannot be hoisted but the function() can. Uncomment line 388 to check it.
+congo();
+function congo() {
+}
+congo();
+console.log(p1.greet === Person.prototype.greet);
+/* Tutorial -22 Class body and methods */
+console.log("Tutorial -22 Class body and methods");
+var Man = /** @class */ (function () {
+    function Man(name) {
+        this.name = name;
+        console.log(this.name + " Constructor");
+    }
+    Man.staticMethod = function () {
+        console.log("Static Method");
+    };
+    Man.prototype.greetPerson = function () {
+        console.log("Hello " + this.name);
+    };
+    Man.prototype.getID = function () {
+        return 10;
+    };
+    Man.prototype.getAddress = function () {
+        return 'Andra Pradesh';
+    };
+    return Man;
+}());
+var m = new Man("Chandler");
+Man.staticMethod();
+m.greetPerson();
+console.log(m.getAddress());
+/* Tutorial -23 Class body and methods */
+console.log("Tutorial -23 Class body and methods");
+var Employee = /** @class */ (function (_super) {
+    __extends(Employee, _super);
+    function Employee(name) {
+        var _this = _super.call(this, name) || this;
+        console.log(name + " Employee constructor");
+        return _this;
+    }
+    Employee.prototype.getID = function () {
+        return _super.prototype.getID.call(this);
+    };
+    Employee.prototype.getAddress = function () {
+        return 'Guntur';
+    };
+    return Employee;
+}(Man));
+var e = new Employee("Chandler");
+console.log(e.getID());
+console.log(e.getAddress());
+/* Tutorial -24 Introduction to Modules */
+console.log("Tutorial -24 Introduction to Modules");
 //# sourceMappingURL=index.js.map

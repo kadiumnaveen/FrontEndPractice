@@ -308,7 +308,7 @@ let person2 = {
 console.log(person2);
 console.log(person2["first name"]);
 
-/* Tutorial -17 */
+/* Tutorial -17 Destructing an Array*/
 console.log("Tutorial -17");
 
 let employee2 = ["Chandler", "Bing"];
@@ -325,11 +325,138 @@ let [, , gender2] = employee2;
 
 console.log(gender2);
 
-/* Tutorial -18 Alias */
+/* Tutorial -18 Alias and destructing an object */
 console.log("Tutorial -18");
 
-// let [{fname: f, lname: l, gender: g} = employee2;
-// console.log(f);
-// console.log(l);
-// console.log(g);
+let employee3 = {
+    fname3: "Chandler",
+    lname3: "Bing",
+    gender3: "Male"
+};
 
+let {fname3, lname3, gender3} = employee3;
+
+console.log(fname);
+console.log(lname);
+console.log(gender);
+
+// if any of the object atribute is slightly big so we can use alias for teh such atributes
+ let {fname3: f, lname3: l, gender3: g} = employee3;
+ 
+ console.log(f);
+ console.log(l);
+ console.log(g);
+
+ /* Tutorial -19 String Templates */
+console.log("Tutorial -19  String Templates");
+
+ let user = "Chandler";
+
+let greet = `Welcome 'single' "double" ${user} to ES2015
+            This is the second line.
+               Third and so          on.
+
+`;
+
+console.log(greet);
+
+
+ /* Tutorial -20 forOf loop */
+ console.log("Tutorial -20 forOf loop");
+
+ let colors = ['Red', 'Blue', 'Green'];
+
+ for(let index in colors){
+     console.log(colors[index]);
+     
+ }
+ 
+ for(let color of colors){
+     console.log(color);
+     
+ }
+ 
+ let letters = "ABC";
+ 
+ for(let letter of letters){
+     console.log(letter);
+     
+ }
+
+  /* Tutorial -21 Class Declaration*/
+  console.log("Tutorial -21 Class Declaration");
+  //console.log(typeof Person);
+  class Person{
+    greet(){}
+}
+let p1 = new Person();
+console.log(typeof Person);
+console.log(typeof congo);
+//classes are nothing but a function but it cannot be hoisted but the function() can. Uncomment line 388 to check it.
+congo();
+function congo(){
+}
+congo();
+console.log(p1.greet === Person.prototype.greet);
+
+
+  /* Tutorial -22 Class body and methods */
+  console.log("Tutorial -22 Class body and methods");
+
+  class Man{
+      //even if we didn't give name atribute in this Man Object this.name is accessable with errors.
+      //To check kindly comment the line 409
+    name: string;
+    constructor(name){
+        this.name = name;
+        console.log(this.name + " Constructor");
+        
+    }
+    static staticMethod(){
+        console.log("Static Method");
+        
+    }
+    greetPerson(){
+        console.log("Hello " + this.name);
+        
+    }
+
+    getID(){
+        return 10;
+    }
+
+    getAddress(){
+        return 'Andra Pradesh';
+    }
+ }
+ let m = new Man("Chandler");
+ Man.staticMethod();
+ m.greetPerson();
+ console.log(m.getAddress());
+ 
+ 
+   /* Tutorial -23 Class body and methods */
+   console.log("Tutorial -23 Class body and methods");
+ 
+
+class Employee extends Man{
+    constructor(name){
+        super(name);
+        console.log(name + " Employee constructor");
+        
+    }
+    getID(){
+        return super.getID();
+    }
+
+    getAddress(){
+        return 'Guntur';
+    }
+}
+
+let e = new Employee("Chandler");
+console.log(e.getID());
+console.log(e.getAddress());
+ 
+/* Tutorial -24 Introduction to Modules */
+console.log("Tutorial -24 Introduction to Modules");
