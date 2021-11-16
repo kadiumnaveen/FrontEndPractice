@@ -380,5 +380,63 @@ var e = new Employee("Chandler");
 console.log(e.getID());
 console.log(e.getAddress());
 /* Tutorial -24 Introduction to Modules */
-console.log("Tutorial -24 Introduction to Modules");
+console.log("Tutorial -24 Introduction to Modules. Please refer the notes.");
+/* Tutorial -25 Modules loader setup configuaration */
+console.log("Tutorial -25 Modules loader setup configuaration.");
+/* Tutorial -29 sets and maps */
+console.log("Tutorial -29 sets and maps.");
+var mySet = Object.create(null);
+mySet.id = true;
+if (mySet.id) {
+    console.log("true value id exists");
+}
+mySet.id = 0;
+if (mySet.id) {
+    console.log("O Value id exists");
+}
+else {
+    console.log("O Value id doesn't exists");
+}
+mySet.id = 1;
+if (mySet.id) {
+    console.log("1 value id exists");
+}
+var myMap = Object.create(null);
+myMap.name = "Chandler";
+var val = myMap.name;
+console.log(val);
+myMap[100] = "Hello";
+console.log("100 as string " + myMap["100"]);
+console.log("100 as number " + myMap[100]);
+var ob1 = {};
+var ob2 = {};
+//myMap[ob1] = "World";
+//console.log(myMap[ob2]);
+//Above and below wo line work same but Vs code not accepting a object in index value.
+myMap[ob1.toString()] = "World";
+console.log(myMap[ob2.toString()]);
+//objects in the attributes will always be taken as string, As ob1 and ob2 string values are same we are getting the 
+//same values from the map.
+console.log(ob1.toString());
+console.log(ob2.toString());
+/* Tutorial -30 Sets */
+console.log("Tutorial -30 Sets.");
+//run the below command to recognize the Set object by VS Code
+//npm install @types/node --save-dev
+//else Set object will not be recognised and will get an error while compiling.
+var set = new Set();
+set.add("Hello");
+set.add(1);
+set.add(ob1);
+set.add(ob2);
+//objects cannot be same while add them into set.
+console.log(set.size);
+var newSet = new Set([1, 2, 3, 4, 4, 4]);
+console.log(newSet.size);
+var chainSet = new Set().add("hello").add("world");
+console.log(chainSet.size);
+console.log(newSet.has(1));
+console.log(newSet.has(5));
+console.log(newSet.delete(1));
+console.log(newSet.size);
 //# sourceMappingURL=index.js.map
